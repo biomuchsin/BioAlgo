@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BioFileIO/BioFileIO.iml" filepath="$PROJECT_DIR$/BioFileIO/BioFileIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GotohAlign/GotohAlign.iml" filepath="$PROJECT_DIR$/GotohAlign/GotohAlign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuffixArray/SuffixArray.iml" filepath="$PROJECT_DIR$/SuffixArray/SuffixArray.iml" />
+    </modules>
+  </component>
+</project>
