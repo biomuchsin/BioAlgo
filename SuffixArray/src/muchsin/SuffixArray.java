@@ -49,10 +49,10 @@ public interface SuffixArray {
 			int compareIdx = suffix[reversedSA[idx]-1];
 
 			if(numMatch == 0) {
-				for(int pos = 0; pos < suffix.length-idx; pos++) {
+				for(int pos = 0; pos < suffix.length-idx-1; pos++) {
 					if (query.charAt(idx+pos) == query.charAt(compareIdx+pos)) {
 						numMatch++;
-					} else if (compareIdx+pos >= suffix.length) {
+					} else if (compareIdx+pos >= suffix.length-1) {
 						break;
 					} else {
 						break;
