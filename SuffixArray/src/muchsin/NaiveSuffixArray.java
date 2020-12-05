@@ -2,7 +2,11 @@ package muchsin;
 
 import java.util.Arrays;
 
-public class NaiveSuffixArrayBuilder implements SuffixArrayBuilder {
+public class NaiveSuffixArray implements SuffixArray {
+
+	String query;
+	int[] suffix;
+	int[] LCP;
 
 	@Override
 	public int[] build(String t) {
@@ -15,5 +19,21 @@ public class NaiveSuffixArrayBuilder implements SuffixArrayBuilder {
 			re2[i] = re[i];
 		return re2;
 	}
+
+	@Override
+	public int[] getSuffixArray() {
+		return suffix;
+	}
+
+	@Override
+	public String getString() {
+		return query;
+	}
+
+	@Override
+	public void setLCPTable(int[] lcp) {
+		this.LCP = lcp;
+	}
+
 
 }

@@ -1,5 +1,5 @@
-import muchsin.NaiveSuffixArrayBuilder;
-import muchsin.SuffixArrayBuilder;
+import muchsin.NaiveSuffixArray;
+import muchsin.SuffixArray;
 import muchsin.ManberMyersSuffixArray;
 import org.junit.Assert;
 import org.junit.Test;
@@ -51,7 +51,7 @@ public class ManberMyersTest {
         sb.append('$');
 
         long startTime = System.currentTimeMillis();
-        SuffixArrayBuilder sab = new NaiveSuffixArrayBuilder();
+        SuffixArray sab = new NaiveSuffixArray();
         int[] sa = sab.build(sb.toString());
         long endTime = System.currentTimeMillis();
         System.out.print("Naive implementation: ");

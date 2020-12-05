@@ -1,6 +1,10 @@
 package muchsin;
 
-public class ManberMyersSuffixArray implements SuffixArrayBuilder {
+public class ManberMyersSuffixArray implements SuffixArray {
+
+    String query;
+    int[] suffix;
+    int[] LCP;
 
     @Override
     public int[] build(String t) {
@@ -75,7 +79,25 @@ public class ManberMyersSuffixArray implements SuffixArrayBuilder {
 
         }
 
+        this.query = t;
+        this.suffix = bucketArray;
+
         return bucketArray;
+    }
+
+    @Override
+    public int[] getSuffixArray() {
+        return suffix;
+    }
+
+    @Override
+    public String getString() {
+        return query;
+    }
+
+    @Override
+    public void setLCPTable(int[] lcp) {
+        this.LCP = lcp;
     }
 
 }
