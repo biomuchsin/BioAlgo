@@ -1,3 +1,4 @@
+import muchsin.FastaReader;
 import muchsin.NaiveSuffixArray;
 import muchsin.SuffixArray;
 import muchsin.ManberMyersSuffixArray;
@@ -5,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class ManberMyersTest {
 
@@ -28,7 +30,7 @@ public class ManberMyersTest {
     }
 
     @Test
-    public void testSortCompareVirus() {
+    public void testSortVirus() {
 
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("testfiles/hhv1.fna")))) {
@@ -65,7 +67,31 @@ public class ManberMyersTest {
         System.out.println(endTime - startTime);
 
         Assert.assertTrue(sab.check(sb.toString(), sa));
-        Assert.assertTrue(sab.check(sb.toString(), manbersSA));
+        Assert.assertTrue(mma.check(sb.toString(), manbersSA));
+
+    }
+
+    @Test
+    public void testSortUseFastaReader() {
+
+        HashMap<String, String> fastaRecord = FastaReader.parseAsHashmapString("testfiles/hhv1.fna");
+        for(HashMap.Entry<String, String> record: fastaRecord.entrySet()) {
+            String recordId = record.getKey();
+            String sequence = record.getValue();
+
+            sequence += "$";
+
+            System.out.println("Processing: " + recordId);
+            long startTime = System.currentTimeMillis();
+            ManberMyersSuffixArray mma = new ManberMyersSuffixArray();
+            int[] manbersSA = mma.build(sequence);
+            long endTime = System.currentTimeMillis();
+            System.out.print("Manber Myers algorithm: ");
+            System.out.println(endTime - startTime);
+
+            Assert.assertTrue(mma.check(sequence, manbersSA));
+
+        }
 
     }
 

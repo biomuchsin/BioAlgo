@@ -23,7 +23,7 @@ public final class FastaReader {
                         fastaRecord.put(header, sequence.toString());
                         sequence = new StringBuilder();
                     }
-                    header = line;
+                    header = line.substring(1);
                 }
                 else
                     sequence.append(line);
