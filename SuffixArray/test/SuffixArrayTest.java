@@ -73,7 +73,7 @@ public class SuffixArrayTest {
 
                 for(int idx = 1; idx < sequence.length(); idx++) {
                     if(LCP[idx] > maxValue) {
-                        if(sortedIndex[idx-1] > hhv1Sequence.length()) {
+                        if((sortedIndex[idx] < hhv1Sequence.length()) && (sortedIndex[idx-1] > hhv1Sequence.length())) {
                             maxValue = LCP[idx];
                             maxIdx = sortedIndex[idx];
                         }
