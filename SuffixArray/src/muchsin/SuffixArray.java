@@ -44,9 +44,15 @@ public interface SuffixArray {
 		}
 
 		int numMatch = 0;
+		int prevCompare = 0;
+
 		for(int idx = 0; idx < suffix.length-1; idx++) {
 
 			int compareIdx = suffix[reversedSA[idx]-1];
+
+			if(prevCompare!=compareIdx-1) {
+				numMatch = 0;
+			}
 
 			if(numMatch == 0) {
 				for(int pos = 0; pos < suffix.length-idx-1; pos++) {
@@ -61,6 +67,7 @@ public interface SuffixArray {
 			} else {
 				numMatch--;
 			}
+			prevCompare = compareIdx;
 
 			LCP[reversedSA[idx]] = numMatch;
 		}

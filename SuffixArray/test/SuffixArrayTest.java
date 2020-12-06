@@ -8,7 +8,7 @@ public class SuffixArrayTest {
 
     @Test
     public void testLCPSimple(){
-        String t = "MISSISSIPPI$";
+        String t = "MISSISSIMCPI$";
         ManberMyersSuffixArray mma = new ManberMyersSuffixArray();
         int[] sortedIndex = mma.build(t);
         System.out.println(Arrays.toString(sortedIndex));
@@ -26,10 +26,11 @@ public class SuffixArrayTest {
     }
 
     @Test
+    // now works for >2 strings
     public void testLCSSimple(){
         String a = "MISSISSIPPI>";
-        String b = "ISSMPI<";
-        String c = "ISPMIP$";
+        String b = "ISSMIP<";
+        String c = "ISPMPI$";
         String t = a + b + c;
         ManberMyersSuffixArray mma = new ManberMyersSuffixArray();
         int[] sortedIndex = mma.build(t);
